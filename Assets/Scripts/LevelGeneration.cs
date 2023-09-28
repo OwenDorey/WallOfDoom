@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static GameObject[] levels;
+    public Transform player;
+    public GameObject environment;
+
+    private int levelPosition = 0;
+    
     void Start()
     {
-        
+        levels = Resources.LoadAll<GameObject>("Levels");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (player.position.x > (levelPosition - 3))
+        {
+            levelPosition += 18;
+            GenerateLevel();
+        }
+    }
+
+    void GenerateLevel()
+    {
+        int randomLevel = Random.Range(0, levels.Length);
+        GameObject level = Instantiate(levels[randomLevel]) as GameObject;
+        level.transform.position = new Vector3(levelPosition, 0, 0);
+        level.transform.parent = environment.transform;
     }
 }
