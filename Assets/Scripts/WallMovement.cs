@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallMovement : MonoBehaviour
 {
+    public GameObject player;
     public Transform wall;
     public Transform cam;
     public float wallMoveSpeed = 1f;
@@ -11,7 +12,7 @@ public class WallMovement : MonoBehaviour
     public float speedUpTime = 2f;
     public float speedUpAmount = 0.5f;
 
-    private float offset = 9f;
+    private float offset = 10f;
     void Update()
     {
         Vector3 wallPosition = new Vector3((wall.position.x + 1), wall.position.y, 0);
@@ -29,5 +30,6 @@ public class WallMovement : MonoBehaviour
     void SpeedUp()
     {
         wallMoveSpeed += speedUpAmount;
+        player.GetComponent<PlayerMovement>().speed += speedUpAmount;
     }
 }

@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    public float speed = 4f;
+
     private float horizontal;
-    private float speed = 4f;
     private float jumpingPower = 8f;
     private bool isFacingRight = true;
 
-    // Update is called once per frame
     void Update()
     {
         rigidBody.velocity = new Vector2(horizontal * speed, rigidBody.velocity.y);

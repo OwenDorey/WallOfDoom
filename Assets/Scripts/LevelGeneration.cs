@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public static GameObject[] levels;
-    public Transform player;
+    public Transform cam;
     public GameObject environment;
 
     private int levelPosition = 0;
@@ -17,7 +17,7 @@ public class LevelGeneration : MonoBehaviour
 
     void Update()
     {
-        if (player.position.x > (levelPosition - 3))
+        if (cam.position.x > (levelPosition - 3))
         {
             levelPosition += 18;
             GenerateLevel();
