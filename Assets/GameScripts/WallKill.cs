@@ -9,6 +9,7 @@ public class WallKill : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            other.GetComponent<TrailRenderer>().emitting = false;
             SceneManager.LoadScene(1);
         }
     }
